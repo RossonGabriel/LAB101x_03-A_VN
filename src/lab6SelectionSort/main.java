@@ -1,4 +1,4 @@
-package lab5BubbleSort;
+package lab6SelectionSort;
 
 import utils.integerUtils;
 
@@ -25,21 +25,23 @@ public class main {
         }
 
         System.out.println("Unsorted array: " + Arrays.toString(unsortedArray));
-        int[] sortedArray = bubbleSort(unsortedArray);
+        int[] sortedArray = selectionSort(unsortedArray);
         System.out.println("Sorted array: " + Arrays.toString(sortedArray));
     }
 
-    private static int[] bubbleSort(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 1; j < array.length - i; j++) {
-                if (array[j - 1] > array[j]) {
-                    int temp = array[j-1];
-                    array[j-1] = array[j];
-                    array[j] = temp;
+    public static int[] selectionSort(int[] array){
+        for (int i = 0; i < array.length - 1; i++)
+        {
+            int index = i;
+            for (int j = i + 1; j < array.length; j++){
+                if (array[j] < array[index]){
+                    index = j;//searching for lowest index
                 }
             }
+            int smallerNumber = array[index];
+            array[index] = array[i];
+            array[i] = smallerNumber;
         }
-
         return array;
     }
 }
