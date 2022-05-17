@@ -17,19 +17,19 @@ public class main {
         Scanner scanner = new Scanner(System.in);
 
         int arrayLength = Math.abs(integerUtils.getIntFromUser(scanner, "Enter number of array:", "Please input a true integer"));
-        int[] unsortedArray = new int[arrayLength];
+        int[] generatedArray = new int[arrayLength];
 
         /* generate a random number in array */
         for (int i = 0; i < arrayLength; i++) {
-            unsortedArray[i] = (int)Math.floor(Math.random() * (MAX_GENERATED_NUMBER - MIN_GENERATED_NUMBER) + MIN_GENERATED_NUMBER);
+            generatedArray[i] = (int)Math.floor(Math.random() * (MAX_GENERATED_NUMBER - MIN_GENERATED_NUMBER) + MIN_GENERATED_NUMBER);
         }
 
-        System.out.println("Unsorted array: " + Arrays.toString(unsortedArray));
-        int[] sortedArray = bubbleSort(unsortedArray);
-        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
+        System.out.println("Unsorted array: " + Arrays.toString(generatedArray));
+        bubbleSort(generatedArray);
+        System.out.println("Sorted array: " + Arrays.toString(generatedArray));
     }
 
-    private static int[] bubbleSort(int[] array) {
+    private static void bubbleSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - i; j++) {
                 if (array[j - 1] > array[j]) {
@@ -39,7 +39,5 @@ public class main {
                 }
             }
         }
-
-        return array;
     }
 }

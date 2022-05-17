@@ -17,19 +17,19 @@ public class main {
         Scanner scanner = new Scanner(System.in);
 
         int arrayLength = Math.abs(integerUtils.getIntFromUser(scanner, "Enter number of array:", "Please input a true integer"));
-        int[] unsortedArray = new int[arrayLength];
+        int[] generatedArray = new int[arrayLength];
 
         /* generate a random number in array */
         for (int i = 0; i < arrayLength; i++) {
-            unsortedArray[i] = (int)Math.floor(Math.random() * (MAX_GENERATED_NUMBER - MIN_GENERATED_NUMBER) + MIN_GENERATED_NUMBER);
+            generatedArray[i] = (int)Math.floor(Math.random() * (MAX_GENERATED_NUMBER - MIN_GENERATED_NUMBER) + MIN_GENERATED_NUMBER);
         }
 
-        System.out.println("Unsorted array: " + Arrays.toString(unsortedArray));
-        int[] sortedArray = selectionSort(unsortedArray);
-        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
+        System.out.println("Unsorted array: " + Arrays.toString(generatedArray));
+        selectionSort(generatedArray);
+        System.out.println("Sorted array: " + Arrays.toString(generatedArray));
     }
 
-    public static int[] selectionSort(int[] array){
+    public static void selectionSort(int[] array){
         for (int i = 0; i < array.length - 1; i++)
         {
             int lowestElementIndex = i;
@@ -42,6 +42,5 @@ public class main {
             array[lowestElementIndex] = array[i];
             array[i] = smallerNumber;
         }
-        return array;
     }
 }

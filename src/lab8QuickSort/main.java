@@ -17,26 +17,25 @@ public class main {
         Scanner scanner = new Scanner(System.in);
 
         int arrayLength = Math.abs(integerUtils.getIntFromUser(scanner, "Enter number of array:", "Please input a true integer"));
-        int[] unsortedArray = new int[arrayLength];
+        int[] generatedArray = new int[arrayLength];
 
         /* generate a random number in array */
         for (int i = 0; i < arrayLength; i++) {
-            unsortedArray[i] = (int)Math.floor(Math.random() * (MAX_GENERATED_NUMBER - MIN_GENERATED_NUMBER) + MIN_GENERATED_NUMBER);
+            generatedArray[i] = (int)Math.floor(Math.random() * (MAX_GENERATED_NUMBER - MIN_GENERATED_NUMBER) + MIN_GENERATED_NUMBER);
         }
 
-        System.out.println("Unsorted array: " + Arrays.toString(unsortedArray));
-        int[] sortedArray = quickSort(unsortedArray, 0, unsortedArray.length - 1);
-        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
+        System.out.println("Unsorted array: " + Arrays.toString(generatedArray));
+        quickSort(generatedArray, 0, generatedArray.length - 1);
+        System.out.println("Sorted array: " + Arrays.toString(generatedArray));
     }
 
-    public static int[] quickSort(int arr[], int begin, int end) {
+    public static void quickSort(int arr[], int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(arr, begin, end);
 
             quickSort(arr, begin, partitionIndex-1);
             quickSort(arr, partitionIndex+1, end);
         }
-        return arr;
     }
 
     private static int partition(int arr[], int begin, int end) {
