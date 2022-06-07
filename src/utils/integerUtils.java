@@ -20,7 +20,7 @@ public class integerUtils {
         Scanner scanner = new Scanner(System.in);
         /* ask user util get the integer input */
         while (true) {
-            System.out.println(inputMessage);
+            System.out.print(inputMessage);
             String userInput = scanner.nextLine();
 
             if (isNumeric(userInput))
