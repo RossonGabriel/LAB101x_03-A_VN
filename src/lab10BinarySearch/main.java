@@ -69,19 +69,19 @@ public class main {
         return i+1;
     }
 
-    public static int runBinarySearch(int[] sortedArray, int key, int low, int high) {
+    public static int runBinarySearch(int[] sortedArray, int searchValue, int low, int high) {
         int middle = low  + ((high - low) / 2);
 
         if (high < low) {
             return -1;
         }
 
-        if (key == sortedArray[middle]) {
+        if (searchValue == sortedArray[middle]) {
             return middle;
-        } else if (key < sortedArray[middle]) {
-            return runBinarySearch(sortedArray, key, low, middle - 1);
+        } else if (searchValue < sortedArray[middle]) {
+            return runBinarySearch(sortedArray, searchValue, low, middle - 1);
         } else {
-            return runBinarySearch(sortedArray, key, middle + 1, high);
+            return runBinarySearch(sortedArray, searchValue, middle + 1, high);
         }
     }
 }
