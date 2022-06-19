@@ -34,13 +34,16 @@ public class main {
         {
             int lowestElementIndex = i;
             for (int j = i + 1; j < array.length; j++){
+                /* Searching for lowest index */
                 if (array[j] < array[lowestElementIndex]){
-                    lowestElementIndex = j;//searching for lowest index
+                    lowestElementIndex = j;
                 }
             }
-            int smallerNumber = array[lowestElementIndex];
+
+            /* Swap the lowest number at the end of sorted array part */
+            int lowestNumber = array[lowestElementIndex];
             array[lowestElementIndex] = array[i];
-            array[i] = smallerNumber;
+            array[i] = lowestNumber;
         }
     }
 }
