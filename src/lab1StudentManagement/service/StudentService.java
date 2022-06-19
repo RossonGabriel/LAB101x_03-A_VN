@@ -20,6 +20,8 @@ public class StudentService {
 
     public StudentService() {
         studentList = new ArrayList<>();
+
+        /* Test database with 8 students */
         studentList.add(new Student("S1", "Quang", 1, new ArrayList<>(Arrays.asList("Java", "Java", ".Net"))));
         studentList.add(new Student("S2", "Hieu", 7, new ArrayList<>(Arrays.asList("Java", ".Net"))));
         studentList.add(new Student("S3", "Ha", 1, new ArrayList<>(Arrays.asList("Java", "Java", ".Net"))));
@@ -74,6 +76,9 @@ public class StudentService {
     }
 
     public void report() {
+        /* Print header */
+        System.out.printf("|%5s|%20s|%10s|%5s|\n", "ID", "Student Name", "Course", "Num");
+
         studentList.forEach(student -> {
             ArrayList<String> courseNames = student.getCourseName();
             ArrayList<String> courseNamesFilter = new ArrayList<>();
@@ -84,7 +89,7 @@ public class StudentService {
                 if (!isAlreadyCounted) {
                     courseNamesFilter.add(courseName);
                     long amountOfCourses = courseNames.stream().filter((elm) -> elm.equalsIgnoreCase(courseName)).count();
-                    System.out.printf("|%25s|%8s|%3d\n", student.getStudentName(), courseName, amountOfCourses);
+                    System.out.printf("|%5s|%20s|%10s|%5d|\n", student.getId(), student.getStudentName(), courseName, amountOfCourses);
                 }
             });
         });
